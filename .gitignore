@@ -1,0 +1,10 @@
+# Archivos especificos
+data/raw/travels/*.parquet
+
+# Archivos de cache / Directorios
+
+
+# Entornos virtuales (si usas virtualenv o similar)
+entorno/
+
+# Archivos con extenciones en especifico (Ej: *.py - *.txt)

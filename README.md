@@ -1,6 +1,4 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
-
-## Trabajo Practico Grupal - Taxis NYC & WEATHER API
+## Proyecto Practico - Taxis NYC
 
 
 Una empresa de servicios de transporte de pasajeros que actualmente se encuentra operando en el sector de micros
