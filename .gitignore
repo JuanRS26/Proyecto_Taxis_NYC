@@ -1,8 +1,9 @@
 # Archivos especificos
-data/raw/trips/*.parquet
+# data/raw/trip/*.parquet
+__init__.py
 
 # Archivos de cache / Directorios
-
+__pycache__/
 
 # Entornos virtuales (si usas virtualenv o similar)
 entorno/
