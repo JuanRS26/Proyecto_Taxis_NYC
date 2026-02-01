@@ -1,5 +1,5 @@
 # Archivos especificos
-data/raw/travels/*.parquet
+data/raw/trips/*.parquet
 
 # Archivos de cache / Directorios
 
