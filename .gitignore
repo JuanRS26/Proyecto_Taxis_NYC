@@ -1,6 +1,6 @@
 # Archivos especificos
-# data/raw/trip/*.parquet
 __init__.py
+pipeline/test.py
 
 # Archivos de cache / Directorios
 __pycache__/

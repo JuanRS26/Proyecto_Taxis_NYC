@@ -1,6 +1,6 @@
 import pandas as pd
-import src.extract as ext
+import src.clean as clean
+import pipeline.test as ts
 
-df = ext.extract_data()
-
-print(df.info())
+ts.pruebas()
+# clean.replace_values_nan()
