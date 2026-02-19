@@ -1,6 +1,6 @@
 # Archivos especificos
 __init__.py
-pipeline/test.py
+test.py
 
 # Archivos de cache / Directorios
 __pycache__/

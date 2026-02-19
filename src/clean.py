@@ -28,6 +28,11 @@ list_columns = ['VendorID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'pa
                 'payment_type', 'fare_amount', 'extra','mta_tax', 'tip_amount', 'tolls_amount',
                 'improvement_surcharge', 'total_amount', 'congestion_surcharge', 'Airport_fee']
 
+dates = ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01',
+         '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01',
+         '2025-01-01', '2025-02-01', '2025-03-01', '2025-04-01', '2025-05-01', '2025-06-01', 
+         '2025-07-01', '2025-08-01', '2025-09-01', '2025-10-01', '2025-11-01', '2025-12-01']
+
 # ------------------------------------  CLEANING  --------------------------------------------------
 
 # La siguente funcion remplaza los valores nulos por valores especificos dependiendo de cada columna.
@@ -56,3 +61,40 @@ def transform_types():
         df = pd.read_parquet(RAW_TRIP_DIR / name_df)
 
         df['VendorID'] = df['VendorID'].astype('int32')
+
+
+def dates_correction():
+
+    column_pickup = 'tpep_pickup_datetime'
+    columna_dropoff = 'tpep_dropoff_datetime'
+    
+    print(f'Se realizara la correccion de las fechas de los DataFrames para la columna "{column_pickup}"...\n')
+    
+    for i, name_df in enumerate(list_names_df):
+
+        df = pd.read_parquet(RAW_TRIP_DIR / name_df)
+
+        total_values = df[column_pickup].count()
+
+        df = df[(df[column_pickup] >= dates[i]) & (df[column_pickup] < dates[i+1])]
+
+        correct_values = df[column_pickup].count()
+        deleted_values = total_values - correct_values
+
+        print(f'{name_df} -> Total: {total_values} / Correct: {correct_values} / Deleted: {deleted_values}')
+
+
+    print(f'\nSe realizara la correccion de las fechas de los DataFrames para la columna "{columna_dropoff}"...\n')
+    
+    for i, name_df in enumerate(list_names_df):
+
+        df = pd.read_parquet(RAW_TRIP_DIR / name_df)
+
+        total_values = df[columna_dropoff].count()
+
+        df = df[df[columna_dropoff] >= dates[i]]
+
+        correct_values = df[columna_dropoff].count()
+        deleted_values = total_values - correct_values
+
+        print(f'{name_df} -> Total: {total_values} / Correct: {correct_values} / Deleted: {deleted_values}')

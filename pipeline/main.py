@@ -1,6 +1,6 @@
 import pandas as pd
 import src.clean as clean
-import pipeline.test as ts
+import src.test as test
 
-ts.pruebas()
-# clean.replace_values_nan()
+# test.pruebas()
+clean.dates_correction()
